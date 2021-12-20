@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Category;
+use App\SubCategory;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class SubCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +13,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::all();
+        return SubCategory::all();
     }
 
 
@@ -25,7 +24,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('categories.create');
+        return view('subcategories.create');
     }
 
     /**
@@ -36,29 +35,29 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($request->all());
+        $subcategory = SubCategory::create($request->all());
 
-        return response()->json($category, 201);
+        return response()->json($subcategory, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\SubCategory  $subcategory
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Category::find($id);
+        return SubCategory::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\SubCategory  $subcategory
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(SubCategory $subcategory)
     {
         return view('categories.edit', compact('category'));
     }
@@ -67,28 +66,28 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  \App\SubCategory  $subcategory
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $category=Category::findOrFail($id);
+        $subcategory=SubCategory::findOrFail($id);
 
-        $category->update($request->all());
+        $subcategory->update($request->all());
 
-        return response()->json($category, 200);
+        return response()->json($subcategory, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category  $category
+     * @param  \App\SubCategory  $subcategory
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
+        $subcategory = SubCategory::findOrFail($id);
+        $subcategory->delete();
 
         return response()->json(null, 204);
     }

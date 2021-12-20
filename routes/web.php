@@ -16,4 +16,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/token', function () {
+    return csrf_token(); 
+});
+
+
 Route::resource('/categories', CategoryController::class);
+Route::resource('/subcategories', SubCategoryController::class);
