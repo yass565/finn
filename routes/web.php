@@ -16,10 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/token', function () {
-    return csrf_token(); 
-});
-
 
 Route::resource('/categories', CategoryController::class);
 Route::resource('/subcategories', SubCategoryController::class);
+Route::resource('/bigcities', BigCityController::class);
+Route::resource('/cities', CityController::class);
+Route::resource('/ads', AdsController::class);
+Route::resource('/adsimages', AdImageController::class);
+Route::resource('/images', ImageController::class);

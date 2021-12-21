@@ -49,4 +49,60 @@ Route::put('categories/{id}', 'CategoryController@update');
 Route::delete('categories/{id}', 'CategoryController@delete');
 
 
+Route::get('bigcities', 'BigCityController@index');
+ 
+Route::get('bigcities/{id}', 'BigCityController@show');
 
+Route::post('bigcities', 'BigCityController@store');
+
+Route::put('bigcities/{id}', 'BigCityController@update');
+
+Route::delete('bigcities/{id}', 'BigCityController@delete');
+
+
+
+Route::get('cities', 'CityController@index');
+ 
+Route::get('cities/{id}', 'CityController@show');
+
+Route::post('cities', 'CityController@store');
+
+Route::put('cities/{id}', 'CityController@update');
+
+Route::delete('cities/{id}', 'CityController@delete');
+
+
+
+Route::get('ads', 'AdsController@index');
+ 
+Route::get('ads/{id}', 'AdsController@show');
+
+Route::post('ads', 'AdsController@store');
+
+Route::put('ads/{id}', 'AdsController@update');
+
+Route::delete('ads/{id}', 'AdsController@delete');
+
+
+
+Route::get('adsimages', 'AdImageController@index');
+ 
+Route::get('adsimages/{id}', 'AdImageController@show');
+
+Route::post('adsimages', 'AdImageController@store');
+
+Route::put('adsimages/{id}', 'AdImageController@update');
+
+Route::delete('adsimages/{id}', 'AdImageController@delete');
+
+
+
+Route::get('images', 'ImageController@index');
+ 
+Route::get('images/{id}', 'ImageController@show');
+
+Route::post('images', 'ImageController@store');
+
+Route::put('images/{id}', 'ImageController@update');
+
+Route::delete('images/{id}', 'ImageController@delete');
