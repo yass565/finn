@@ -26,6 +26,7 @@ class VerifyCsrfToken extends Middleware
         'http://localhost:8000/adsimages/*',
         'http://localhost:8000/images',
         'http://localhost:8000/images/*',
+        'http://localhost:8000/login',
 
     ];
 }

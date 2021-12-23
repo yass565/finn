@@ -17,6 +17,10 @@ class AdsController extends Controller
         return Ads::all();
     }
 
+    public function adsByCategory($category_id){
+        return Ads::all()->where('category_id', $category_id);
+    }
+
 
     /**
      * Show the form for creating a new resource.

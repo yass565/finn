@@ -74,6 +74,8 @@ Route::delete('cities/{id}', 'CityController@delete');
 
 
 Route::get('ads', 'AdsController@index');
+
+Route::get('ads/category/{id}', 'AdsController@adsByCategory');
  
 Route::get('ads/{id}', 'AdsController@show');
 
@@ -106,3 +108,12 @@ Route::post('images', 'ImageController@store');
 Route::put('images/{id}', 'ImageController@update');
 
 Route::delete('images/{id}', 'ImageController@delete');
+
+
+Route::post('/login', 'Auth\AuthController@login')->name('login.api');
+Route::post('/register','Auth\AuthController@register')->name('register.api');
+
+Route::middleware('auth:api')->group(function () {
+    // our routes to be protected will go in here
+    Route::post('/logout', 'Auth\AuthController@logout')->name('logout.api');
+});

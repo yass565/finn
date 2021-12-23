@@ -24,3 +24,4 @@ Route::resource('/cities', CityController::class);
 Route::resource('/ads', AdsController::class);
 Route::resource('/adsimages', AdImageController::class);
 Route::resource('/images', ImageController::class);
+Route::resource('/login', Auth\AuthController::class);
