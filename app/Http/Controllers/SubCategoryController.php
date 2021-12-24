@@ -16,6 +16,14 @@ class SubCategoryController extends Controller
         return SubCategory::all();
     }
 
+    public function getByCategory($category_id){
+        return 
+        SubCategory::where('category_id', $category_id)
+        ->join('categories', 'categories.id', '=', 'sub_categories.category_id')
+        ->select('sub_categories.*', 'categories.category_name')
+        ->get();
+    }
+
 
     /**
      * Show the form for creating a new resource.

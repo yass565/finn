@@ -27,6 +27,8 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('subcategories', 'SubCategoryController@index');
+
+Route::get('categories/{category_id}/subcategories', 'SubCategoryController@getByCategory');
  
 Route::get('subcategories/{id}', 'SubCategoryController@show');
 
@@ -77,9 +79,9 @@ Route::get('ads', 'AdsController@index');
 
 Route::get('ads/popular', 'AdsController@getPopularAds');
 
-Route::get('ads/category/{category_id}', 'AdsController@adsByCategory');
+Route::get('ads/category/{category_id}', 'AdsController@getByCategory');
  
-Route::get('ads/subcategory/{subcategory_id}', 'AdsController@adsBySubCategory');
+Route::get('ads/subcategory/{subcategory_id}', 'AdsController@getBySubCategory');
 
 Route::get('ads/{id}', 'AdsController@show');
 

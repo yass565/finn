@@ -17,7 +17,7 @@ class AdsController extends Controller
         return Ads::all();
     }
 
-    public function adsByCategory($category_id){
+    public function getByCategory($category_id){
         return 
         Ads::where('category_id', $category_id)
         ->join('cities', 'cities.id', '=', 'ads.city_id')
@@ -26,7 +26,7 @@ class AdsController extends Controller
         ->get();
     }
 
-    public function adsBySubCategory($subcategory_id){
+    public function getBySubCategory($subcategory_id){
         return 
         Ads::where('sub_category_id', $subcategory_id)
         ->join('cities', 'cities.id', '=', 'ads.city_id')
