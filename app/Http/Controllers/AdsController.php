@@ -18,7 +18,21 @@ class AdsController extends Controller
     }
 
     public function adsByCategory($category_id){
-        return Ads::all()->where('category_id', $category_id);
+        return 
+        Ads::where('category_id', $category_id)
+        ->join('cities', 'cities.id', '=', 'ads.city_id')
+        ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
+        ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
+        ->get();
+    }
+
+    public function getPopularAds(){
+        return Ads::where('ads_status', 'populaire')
+        ->join('cities', 'cities.id', '=', 'ads.city_id')
+        ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
+        ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
+        ->get();
+
     }
 
 

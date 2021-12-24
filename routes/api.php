@@ -75,7 +75,9 @@ Route::delete('cities/{id}', 'CityController@delete');
 
 Route::get('ads', 'AdsController@index');
 
-Route::get('ads/category/{id}', 'AdsController@adsByCategory');
+Route::get('ads/popular', 'AdsController@getPopularAds');
+
+Route::get('ads/category/{category_id}', 'AdsController@adsByCategory');
  
 Route::get('ads/{id}', 'AdsController@show');
 
