@@ -22,6 +22,7 @@ class SubCategoryController extends Controller
         ->join('categories', 'categories.id', '=', 'sub_categories.category_id')
         ->select('sub_categories.*', 'categories.category_name')
         ->get();
+
     }
 
 
