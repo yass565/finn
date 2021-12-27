@@ -81,6 +81,8 @@ Route::get('ads/popular', 'AdsController@getPopularAds');
 
 Route::get('ads/category/{category_id}', 'AdsController@adsByCategory');
  
+Route::get('ads/subcategory/{subcategory_id}', 'AdsController@adsBySubCategory');
+
 Route::get('ads/{id}', 'AdsController@show');
 
 Route::post('ads', 'AdsController@store');
