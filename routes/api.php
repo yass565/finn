@@ -30,6 +30,8 @@ Route::get('subcategories', 'SubCategoryController@index');
  
 Route::get('subcategories/{id}', 'SubCategoryController@show');
 
+Route::get('subCategories/category/{category_id}', 'SubCategoryController@subCategByCategoryId');
+
 Route::post('subcategories', 'SubCategoryController@store');
 
 Route::put('subcategories/{id}', 'SubCategoryController@update');
