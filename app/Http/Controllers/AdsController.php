@@ -14,7 +14,7 @@ class AdsController extends Controller
      */
     public function index()
     {
-        return Ads::all();
+        return Ads::paginate(20);
     }
 
     public function getByCategory($category_id){
@@ -23,7 +23,7 @@ class AdsController extends Controller
         ->join('cities', 'cities.id', '=', 'ads.city_id')
         ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
         ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
-        ->get();
+        ->paginate(20);
     }
 
     public function getBySubCategory($subcategory_id){
@@ -32,7 +32,7 @@ class AdsController extends Controller
         ->join('cities', 'cities.id', '=', 'ads.city_id')
         ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
         ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
-        ->get();
+        ->paginate(20);
     }
 
     public function getPopularAds(){
@@ -40,7 +40,7 @@ class AdsController extends Controller
         ->join('cities', 'cities.id', '=', 'ads.city_id')
         ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
         ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
-        ->get();
+        ->paginate(20);
 
     }
 

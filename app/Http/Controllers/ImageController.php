@@ -14,7 +14,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        return Image::all();
+        return Image::paginate(20);
     }
 
 

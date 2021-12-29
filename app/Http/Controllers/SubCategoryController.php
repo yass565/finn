@@ -13,7 +13,7 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        return SubCategory::all();
+        return SubCategory::paginate(20);
     }
 
     public function getByCategory($category_id){

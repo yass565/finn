@@ -14,7 +14,7 @@ class AdImageController extends Controller
      */
     public function index()
     {
-        return AdImage::all();
+        return AdImage::paginate(20);
     }
 
 
