@@ -14,7 +14,7 @@ class BigCityController extends Controller
      */
     public function index()
     {
-        return BigCity::paginate(20);
+        return BigCity::all();
     }
 
 

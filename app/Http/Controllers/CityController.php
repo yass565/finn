@@ -14,7 +14,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        return City::paginate(20);
+        return City::all();
     }
 
 
