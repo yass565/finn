@@ -9,4 +9,9 @@ class SubCategory extends Model
     protected $fillable = [
         'category_id', 'sub_category_name', 'img', 'car_type', 'statuss', 'insert_date_time'
     ];
+
+    public function ads()
+    {
+    	return $this->hasMany(Ads::class);
+    }
 }

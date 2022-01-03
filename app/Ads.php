@@ -12,4 +12,14 @@ class Ads extends Model
         'specification', 'other_details', 'lat', 'lng',
         'type', 'ads_status', 'status'
     ];
+
+    public function catgory()
+    {
+    	return $this->belongsTo(Category::class);
+    }
+
+    public function subCatgory()
+    {
+    	return $this->belongsTo(SubCategory::class);
+    }
 }

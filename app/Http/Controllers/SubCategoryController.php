@@ -13,12 +13,14 @@ class SubCategoryController extends Controller
      */
     public function index()
     {
-        return SubCategory::all();
+        return SubCategory::with('Ads')
+        ->get();
     }
 
     public function getByCategory($category_id){
         return 
-        SubCategory::where('category_id', $category_id)
+        SubCategory::with('Ads')
+        ->where('category_id', $category_id)
         ->join('categories', 'categories.id', '=', 'sub_categories.category_id')
         ->select('sub_categories.*', 'categories.category_name')
         ->get();
@@ -57,7 +59,7 @@ class SubCategoryController extends Controller
      */
     public function show($id)
     {
-        return SubCategory::find($id);
+        return SubCategory::with('Ads')->find($id);
     }
 
     /**
