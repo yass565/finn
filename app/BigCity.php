@@ -9,4 +9,9 @@ class BigCity extends Model
     protected $fillable = [
         'bcity_name', 'statuss'
     ];
+
+    public function cities()
+    {
+    	return $this->hasMany(City::class);
+    }
 }
