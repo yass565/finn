@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +15,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
 
 // Route::middleware('api')->group(function () {
 //     Route::resource('categories', CategoryController::class);
@@ -116,10 +114,22 @@ Route::put('images/{id}', 'ImageController@update');
 Route::delete('images/{id}', 'ImageController@delete');
 
 
-Route::post('/login', 'Auth\AuthController@login')->name('login.api');
-Route::post('/register','Auth\AuthController@register')->name('register.api');
+// Route::post('/login', 'Auth\AuthController@login')->name('login.api');
+// Route::post('/register','Auth\AuthController@register')->name('register.api');
 
 Route::middleware('auth:api')->group(function () {
     // our routes to be protected will go in here
     Route::post('/logout', 'Auth\AuthController@logout')->name('logout.api');
+});
+
+Route::get('users', function(){
+    return User::all();
+});
+
+Route::group(['namespace'=>'Api\Auth'], function(){
+    Route::post('/login', 'AuthUserController@login');
+});
+
+Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
 });
