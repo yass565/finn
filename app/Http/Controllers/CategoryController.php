@@ -14,7 +14,32 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::all();
+        return Category::with('CategoryParent', 'categoriesFils')
+        ->get();
+    }
+
+    public function getCategories()
+    {
+        return Category::where('parent_category_id', null)
+        ->with('CategoriesFils')
+        ->get();
+    }
+
+    public function getAdsByCategory($category_id)
+    {
+        return Category::find($category_id)->ads()
+        ->join('cities', 'cities.id', '=', 'ads.city_id')
+        ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
+        ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
+        ->get();
+    }
+
+    public function getCategory($category_id){
+        return 
+        Category::with('CategoryParent', 'Ads', 'CategoriesFils')
+        ->where('parent_category_id', $category_id)
+        ->get();
+
     }
 
 

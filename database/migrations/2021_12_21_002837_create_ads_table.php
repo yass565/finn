@@ -15,18 +15,18 @@ class CreateAdsTable extends Migration
     {
         Schema::create('ads', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id');
-            $table->foreign('category_id')
+            /* $table->unsignedBigInteger('category_id');
+             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
                 ->onDelete('restrict')
-                ->onUpdate('restrict');
-            $table->unsignedBigInteger('sub_category_id');
+                ->onUpdate('restrict'); */
+            /* $table->unsignedBigInteger('sub_category_id');
             $table->foreign('sub_category_id')
                 ->references('id')
                 ->on('subcategories')
                 ->onDelete('restrict')
-                ->onUpdate('restrict');
+                ->onUpdate('restrict'); */
             $table->unsignedBigInteger('big_city_id');
             $table->foreign('big_city_id')
                 ->references('id')
@@ -42,7 +42,7 @@ class CreateAdsTable extends Migration
             $table->string('title');
             $table->string('price');
             $table->text('short_desc');
-            $table->binary('multi_image');
+            $table->string('multi_image');
             $table->text('description');
             $table->text('specification');
             $table->text('other_details');
@@ -51,6 +51,10 @@ class CreateAdsTable extends Migration
             $table->integer('type');
             $table->string('ads_status');
             $table->enum('status', array('Active', 'Deactive', 'Delete'));
+            $table->enum('etat', array('Neuf', 'Occasion'));
+            $table->enum('typeVente', array('Acheter', 'Louer'));
+            $table->string('max_price');
+            $table->enum('typeSearch', array('A vendre', 'donner', 'Achat demandé'));
             $table->timestamps();
         });
     }
