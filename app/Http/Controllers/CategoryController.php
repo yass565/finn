@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Symfony\Component\Console\Output\ConsoleOutput;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -32,6 +32,18 @@ class CategoryController extends Controller
         ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
         ->select('ads.*', 'cities.city_name', 'big_cities.bcity_name')
         ->get();
+    }
+
+    public function getAdsByCategories(Request $request)
+    {
+        $categories_ids=request()->get('categories_ids');
+        $ads=[];
+        foreach($categories_ids as $category_name) {
+            foreach(Category::find($category_name)->ads()->get() as $ad)
+            array_push($ads, $ad);
+        }
+
+        return $ads;
     }
 
     public function getCategory($category_id){
