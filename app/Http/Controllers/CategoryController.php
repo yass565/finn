@@ -37,10 +37,35 @@ class CategoryController extends Controller
     public function getAdsByCategories(Request $request)
     {
         $categories_ids=request()->get('categories_ids');
+        $bcities_ids=request()->get('bcities_ids');
+        $cities_ids=request()->get('cities_ids');
         $ads=[];
+        
         foreach($categories_ids as $category_name) {
-            foreach(Category::find($category_name)->ads()->get() as $ad)
-            array_push($ads, $ad);
+            if($bcities_ids==null && $cities_ids==null){
+                foreach(Category::find($category_name)->ads()->get() as $ad)
+                array_push($ads, $ad);
+            }
+            else if($bcities_ids!=null && $cities_ids==null){
+                foreach(Category::find($category_name)->ads()
+                ->join('cities', 'cities.id', '=', 'ads.city_id')
+                ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
+                ->whereIn('big_cities.id', $bcities_ids)
+                ->get() as $ad)
+                array_push($ads, $ad);
+            }
+            else {
+                foreach(Category::find($category_name)->ads()
+                ->join('cities', 'cities.id', '=', 'ads.city_id')
+                ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
+                ->whereIn('big_cities.id', $bcities_ids)
+                ->whereIn('cities.id', $cities_ids)
+                ->get() as $ad)
+                array_push($ads, $ad);
+            }
+            
+            
+            
         }
 
         return $ads;
