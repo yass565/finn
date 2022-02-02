@@ -18,4 +18,14 @@ class Ads extends Model
     	return $this->belongsToMany(Category::class, 'ads_category');
     }
 
+    public function bigCities()
+    {
+    	return $this->belongsTo(BigCity::class);
+    }
+
+    public function cities()
+    {
+    	return $this->belongsTo(City::class);
+    }
+
 }
