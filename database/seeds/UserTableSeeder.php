@@ -14,10 +14,11 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $admin = User::create([
-            'firstname' => 'Oussamaa',
-            'lastname' => 'Elharmalii',
-            'email' => 'Oussama.elharmali@gmaill.com',
-            'profile' => 'j88.png',
+            'entreprise_id' => null,
+            'firstname' => 'Oussama',
+            'lastname' => 'Elharmali',
+            'email' => 'Oussama.elharmali@gmail.com',
+            'profile' => 'avatar.jpg',
             'phone' => '0766986150',
             'address' => 'N62 Bouznika',
             'pin_code' => 878,
