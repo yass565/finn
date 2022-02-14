@@ -27,4 +27,9 @@ class Category extends Model
     	return $this->belongsToMany(Ads::class);
     }
 
+    public function adsCategory()
+    {
+    	return $this->belongsToMany(AdsCategory::class);
+    }
+
 }

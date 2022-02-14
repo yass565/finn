@@ -35,51 +35,42 @@ class CategoryController extends Controller
         ->get();
     }
 
-    public function getAdsByCategories(Request $request)
+    public function getAdsByCategories(Request $request, Ads $ads)
     {
         $categories_ids=request()->get('categories_ids');
         $bcities_ids=request()->get('bcities_ids');
         $cities_ids=request()->get('cities_ids');
-        $ads=[];
-        if($categories_ids==null) {
-            $ads=Ads::join('cities', 'cities.id', '=', 'ads.city_id')
-            ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
-            ->whereIn('big_cities.id', $bcities_ids)
-            ->whereIn('cities.id', $cities_ids)
-            ->get();
-        }
+        $type_search=request()->get('type_search');
+        $etat=request()->get('etat');
+        $type_vente=request()->get('type_vente');
 
-        else {
-            foreach($categories_ids as $category_name) {
-                if($bcities_ids==null && $cities_ids==null){
-                    foreach(Category::find($category_name)->ads()->get() as $ad)
-                    array_push($ads, $ad);
-                }
-                else if($bcities_ids!=null && $cities_ids==null){
-                    foreach(Category::find($category_name)->ads()
-                    ->join('cities', 'cities.id', '=', 'ads.city_id')
-                    ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
-                    ->whereIn('big_cities.id', $bcities_ids)
-                    ->get() as $ad)
-                    array_push($ads, $ad);
-                }
-                else {
-                    foreach(Category::find($category_name)->ads()
-                    ->join('cities', 'cities.id', '=', 'ads.city_id')
-                    ->join('big_cities', 'big_cities.id', '=', 'ads.big_city_id')
-                    ->whereIn('big_cities.id', $bcities_ids)
-                    ->whereIn('cities.id', $cities_ids)
-                    ->get() as $ad)
-                    array_push($ads, $ad);
-                }
-                
-                
-                
-            }    
+        $ads=$ads->newQuery();
+        $ads=Ads::with('categories', 'bigCities', 'cities');
+        
+        
+        
+        if($categories_ids!=null){ 
+            $ads
+            ->join('ads_category', 'ads_category.ads_id', '=', 'ads.id')
+            ->whereIn('category_id', $categories_ids);
+        } 
+        if($bcities_ids!=null){
+            $ads->whereIn('big_city_id', $bcities_ids);
         }
-        
-        
-        return $ads;
+        if($cities_ids!=null){
+            $ads->whereIn('city_id', $cities_ids);
+        }
+        if($type_search!=null){
+            $ads->whereIn('typeSearch', $type_search);
+        }
+        if($etat!=null){
+            $ads->whereIn('etat', $etat);
+        }
+        if($type_vente!=null){
+            $ads->whereIn('typeVente', $type_vente);
+        }
+           
+        return $ads->get();
     }
 
     public function getCategory($category_id){
