@@ -14,7 +14,7 @@ class BigCityController extends Controller
      */
     public function index()
     {
-        return BigCity::with('Cities')
+        return BigCity::with('Cities', 'Ads')
         ->get();
     }
 
@@ -50,7 +50,8 @@ class BigCityController extends Controller
      */
     public function show($id)
     {
-        return BigCity::find($id);
+        return BigCity::with('cities')
+        ->find($id);
     }
 
     /**

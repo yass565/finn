@@ -14,4 +14,9 @@ class BigCity extends Model
     {
     	return $this->hasMany(City::class);
     }
+
+    public function ads()
+    {
+    	return $this->hasMany(Ads::class);
+    }
 }
