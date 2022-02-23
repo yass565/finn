@@ -55,6 +55,9 @@ class CreateAdsTable extends Migration
             $table->enum('typeVente', array('Acheter', 'Louer'));
             $table->string('max_price');
             $table->enum('typeSearch', array('A vendre', 'donner', 'Achat demandé'));
+            $table->enum('typeLogement', array('Apartements', 'Garage / Stationnement',
+             'Hôtel / Hébérgement', 'Centre commerciale', 'Chambres Combinnées', 'Entrepôt / Logistique'
+            ,'Projet', 'Cantine', 'Atelier', 'Autres'));
             $table->timestamps();
         });
     }

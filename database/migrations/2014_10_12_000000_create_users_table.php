@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password')->nullable();
-            $table->binary('profile')->nullable();
+            $table->string('profile')->default("miavatar.png");
             $table->string('phone')->nullable();
             $table->string('address')->nullable();
             $table->integer('pin_code')->nullable();
