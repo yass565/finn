@@ -7,7 +7,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthUserController extends Controller
+class AuthController extends Controller
 {
     public function login(Request $req ){
         $this->validate($req,
