@@ -35,9 +35,10 @@ class CategoryController extends Controller
         ->get();
     }
 
-    public function getAdsByCategories(Request $request, Ads $ads)
+    public function getAdsByCategories(Request $request, Ads $ads, $category_id)
     {
         $categories_ids=request()->get('categories_ids');
+        $categories_ids.push($category_id);
         $bcities_ids=request()->get('bcities_ids');
         $cities_ids=request()->get('cities_ids');
         $type_search=request()->get('type_search');
@@ -45,8 +46,8 @@ class CategoryController extends Controller
         $type_vente=request()->get('type_vente');
 
         $ads=$ads->newQuery();
-        $ads=Ads::with('categories', 'bigCities', 'cities');
-        
+        $ads=Ads::with('categories', 'bigCities', 'cities')
+        ->where('category_id', $category_id);
         
         
         if($categories_ids!=null){ 
