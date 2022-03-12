@@ -119,10 +119,9 @@ Route::delete('images/{id}', 'ImageController@delete');
 // Route::post('/login', 'Auth\AuthController@login')->name('login.api');
 // Route::post('/register','Auth\AuthController@register')->name('register.api');
 
-Route::middleware('auth:api')->group(function () {
-    // our routes to be protected will go in here
-    Route::post('/logout', 'Auth\AuthController@logout')->name('logout.api');
-});
+// Route::middleware('auth:api')->group(function () {
+//     Route::post('/logout', 'Auth\AuthUserController@logout')->name('logout.api');
+// });
 
 Route::get('users', function(){
     return User::all();
@@ -130,6 +129,10 @@ Route::get('users', function(){
 
 Route::group(['namespace'=>'Api\Auth'], function(){
     Route::post('/login', 'AuthUserController@login');
+    Route::get('/logout', 'AuthUserController@logout')->middleware('auth:api');
+
+    Route::post('/register', 'RegisterController@registerUser');
+
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

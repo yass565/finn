@@ -48,4 +48,18 @@ class AuthUserController extends Controller
             'token_expires_at' => $token->token->expires_at,
         ], 201);
     }
+
+
+    public function logout(Request $req) {
+        /**
+         * @var User $user
+         */
+
+         $user  = Auth::user();
+         $user->tokens->each(function ($token){
+            $token->delete();
+         });
+         return response(['message' => 'Déconnecté de tous les sessions..'], 200);
+         
+    }
 }
