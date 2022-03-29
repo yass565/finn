@@ -54,7 +54,7 @@ class CreateAdsTable extends Migration
             $table->enum('etat', array('Neuf', 'Occasion'));
             $table->enum('typeVente', array('Acheter', 'Louer', 'Achat demandée'));
             $table->string('max_price');
-            $table->enum('typeSearch', array('A vendre', 'donner', 'Achat demandé', 'Vendu les trois derniers jours',
+            $table->enum('typeSearch', array('A vendre', 'A louer', 'donner', 'Achat demandé', 'Vendu les trois derniers jours',
             'Venir pour la vente'));
 
             $table->enum('typeLogement', array('Apartements', 'Garage / Stationnement', 'maison individuelle', 'Villa','Maison jumelée',
@@ -119,6 +119,21 @@ class CreateAdsTable extends Migration
             $table->enum('Chambres', array('1', '2', '3', '4','+5'));
 
             $table->enum('personnes', array('1', '2', '3', '+4'));
+
+            // Category two (Commercial property)
+            $table->enum('TypeLocaux', array('Appartement / Maison multifamiliale',
+             'Garage / Stationnement', 'Ferme / Petite ferme', 'Hébergement à l\'hôtel',
+                'Centre commercial', 'Chambres combinées', 'Entrepôt / Logistique',
+                'Salles à manger / Cantine', 'Enseignement / Evénementiel',
+                 'Locaux du restaurant', 'Garage pour atelier', 'Lavage', 'Usine','Production / Industrie',
+                 'Magasin / Commerce', 'Kiosque local', 'Magasin sur la rue principale',
+                  'Magasin en centre commercial', 'Magasin sur coin', 'Bureau', 'Bureau dans la communauté',
+                  'Plusieurs bureaux', 'Locaux de bureaux de plus de 1000 m²', 'Bureau finement meublé', 'Autres'));
+
+            $table->enum('TypeIndustrie',array('Agence', 'Boutique / Kiosque', 'Coiffeur / Bien-être', 
+                        'Hébergement à l\'hôtel', 'Agriculture / Sylviculture / Pêche', 'Boutique en ligne / site Web',
+                            'Restaurant / Café', 'Atelier mécanique', 'Lavage'));
+
 
             $table->timestamps();
         });
