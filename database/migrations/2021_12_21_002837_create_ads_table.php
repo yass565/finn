@@ -132,8 +132,13 @@ class CreateAdsTable extends Migration
 
             $table->enum('TypeIndustrie',array('Agence', 'Boutique / Kiosque', 'Coiffeur / Bien-être', 
                         'Hébergement à l\'hôtel', 'Agriculture / Sylviculture / Pêche', 'Boutique en ligne / site Web',
-                            'Restaurant / Café', 'Atelier mécanique', 'Lavage'));
+                            'Restaurant / Café', 'Atelier mécanique', 'Autres'));
 
+            $table->enum('TypeTerrainCommercialPlots',array('Terrain pour magasin / Terrain Commerciale', 'Terrain pour quartier résidentiel',
+                'Terrain Hors de l\'hôtel', 'Terrain pour le touriste', 'Terrain pour restaurant / Café',
+                'Terrain pour l\'enseignement / l\'événement', 'Terrain pour immeuble de bureaux', 'Lavage', 'Terrain pour Production / Industrie',
+                'Hors Entrepôt / Logistique', 'Tomate pour l\'atelier / Production', 'Espace pour salle de lavage',
+                'Terrain pour atelier', 'Sortie d\'usine', 'Autres'));
 
             $table->timestamps();
         });
