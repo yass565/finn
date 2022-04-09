@@ -60,6 +60,28 @@ Route::put('bigcities/{id}', 'BigCityController@update');
 Route::delete('bigcities/{id}', 'BigCityController@delete');
 
 
+Route::get('brands', 'BrandController@index');
+ 
+Route::get('brands/{id}', 'BrandController@show');
+
+Route::post('brands', 'BrandController@store');
+
+Route::put('brands/{id}', 'BrandController@update');
+
+Route::delete('brands/{id}', 'BrandController@delete');
+
+
+Route::get('models', 'ModelController@index');
+ 
+Route::get('models/{id}', 'ModelController@show');
+
+Route::post('models', 'ModelController@store');
+
+Route::put('models/{id}', 'ModelController@update');
+
+Route::delete('models/{id}', 'ModelController@delete');
+
+
 
 Route::get('cities', 'CityController@index');
  

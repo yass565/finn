@@ -60,7 +60,7 @@ class CreateAdsTable extends Migration
             $table->enum('typeLogement', array('Apartements', 'Garage / Stationnement', 'maison individuelle', 'Villa','Maison jumelée',
              'Hôtel / Hébérgement', 'Centre commerciale', 'Chambres Combinnées', 'Entrepôt / Logistique' ,'Projet',
              'Cantine', 'Atelier', 'Maison dans la ville', 'Maison de loger', 'Chambres en colocations', 'Attique', 'Duplex', 'Studio',
-              'Maison à l\'extérieur des villes', 'Autres types de fermes', 'Camping', 'Petite ferme', 'Tente à la montagne',
+              'Maison à l extérieur des villes', 'Autres types de fermes', 'Camping', 'Petite ferme', 'Tente à la montagne',
               'Tente sur la plage', 'Bateau', 'Autres'));
 
             $table->enum('formeoeuf', array('Action', 'Partager', 'Propriétaire'));
@@ -76,7 +76,7 @@ class CreateAdsTable extends Migration
                 'Avec une vue', 'Avec un littoral', 'Articles de sport', 'Accessible aux fauteuils roulants', 'Autre'));
             
                 $table->enum('InstallationsPromixiter', array('Sur des terres agricoles', 'Sur la montagne', 'Ligne de plage', 'Par la mer', 'Possibilité de pêche',
-                'Terrain de golf', 'Terrain de tourter', 'A côté de l\'Aéroport', 'Option du transports',
+                'Terrain de golf', 'Terrain de tourter', 'A côté de l Aéroport', 'Option du transports',
                 'Badeland', 'Plage de baignade', 'Possibilité de chasse', 
                 'Possibilité de safari', 'Terrain de jeux', 'Oeufs alpins',
                 'Possibilité de skier', 'Salle de natation', 'Tennis', 'Football',
@@ -85,8 +85,8 @@ class CreateAdsTable extends Migration
                 $table->enum('InstallationsAlimentaires', array('Boulangerie', 'Épicerie', 'Restaurant',
                 'Marché / Souk', 'Marché de viande', 'Marché des poissons'));
 
-            $table->enum('InstallationAgriProp', array('Panneau solaire', 'Eau municipale pour l\'irrigation', 'Vers le chemin de la propriété'
-            ,'Eaux publiques / égouts', 'Garage / place de stationnement', 'Puissance intégrée', 'Villa', 'ferme d\'animaux'
+            $table->enum('InstallationAgriProp', array('Panneau solaire', 'Eau municipale pour l irrigation', 'Vers le chemin de la propriété'
+            ,'Eaux publiques / égouts', 'Garage / place de stationnement', 'Puissance intégrée', 'Villa', 'ferme d animaux'
             , 'Eau intégrée', 'Cheminée', 'Avec une vue', 'Piscine', 'Gardien / service de sécurité', 'Climatisation', 'Jardin'));
 
             $table->enum('InstallationPlots', array('Vide sur le coin',
@@ -99,7 +99,7 @@ class CreateAdsTable extends Migration
             $table->enum('typeTerrainAgriProp', array('Terrain avec arbres fruitiers', 'Terrain avec olives',
             'Parcelle aux amandes', 'Parcelle de légumes', 'À court de céréales', 'Autres'));
 
-            $table->enum('typeMaisonAgriProp', array('Ferme d\'animaux', 'Maison de ferme', 'Villa de ferme',
+            $table->enum('typeMaisonAgriProp', array('Ferme d animaux', 'Maison de ferme', 'Villa de ferme',
                     'Autres'));
 
             $table->enum('typeTerrainAgri', array('Terrain arboré', 'Terrain vide',
@@ -120,9 +120,11 @@ class CreateAdsTable extends Migration
 
             $table->enum('personnes', array('1', '2', '3', '+4'));
 
+            $table->enum('Prix', array('Prix par jour', 'Prix par mois', 'Prix par weekend', 'Prix par an'));
+
             // Category two (Commercial property)
             $table->enum('TypeLocaux', array('Appartement / Maison multifamiliale',
-             'Garage / Stationnement', 'Ferme / Petite ferme', 'Hébergement à l\'hôtel',
+             'Garage / Stationnement', 'Ferme / Petite ferme', 'Hébergement à l hôtel',
                 'Centre commercial', 'Chambres combinées', 'Entrepôt / Logistique',
                 'Salles à manger / Cantine', 'Enseignement / Evénementiel',
                  'Locaux du restaurant', 'Garage pour atelier', 'Lavage', 'Usine','Production / Industrie',
@@ -131,14 +133,14 @@ class CreateAdsTable extends Migration
                   'Plusieurs bureaux', 'Locaux de bureaux de plus de 1000 m²', 'Bureau finement meublé', 'Autres'));
 
             $table->enum('TypeIndustrie',array('Agence', 'Boutique / Kiosque', 'Coiffeur / Bien-être', 
-                        'Hébergement à l\'hôtel', 'Agriculture / Sylviculture / Pêche', 'Boutique en ligne / site Web',
+                        'Hébergement à l hôtel', 'Agriculture / Sylviculture / Pêche', 'Boutique en ligne / site Web',
                             'Restaurant / Café', 'Atelier mécanique', 'Autres'));
 
             $table->enum('TypeTerrainCommercialPlots',array('Terrain pour magasin / Terrain Commerciale', 'Terrain pour quartier résidentiel',
-                'Terrain Hors de l\'hôtel', 'Terrain pour le touriste', 'Terrain pour restaurant / Café',
-                'Terrain pour l\'enseignement / l\'événement', 'Terrain pour immeuble de bureaux', 'Lavage', 'Terrain pour Production / Industrie',
-                'Hors Entrepôt / Logistique', 'Tomate pour l\'atelier / Production', 'Espace pour salle de lavage',
-                'Terrain pour atelier', 'Sortie d\'usine', 'Autres'));
+                'Terrain Hors de l hôtel', 'Terrain pour le touriste', 'Terrain pour restaurant / Café',
+                'Terrain pour l enseignement / l événement', 'Terrain pour immeuble de bureaux', 'Lavage', 'Terrain pour Production / Industrie',
+                'Hors Entrepôt / Logistique', 'Tomate pour l atelier / Production', 'Espace pour salle de lavage',
+                'Terrain pour atelier', 'Sortie d usine', 'Autres'));
 
             $table->timestamps();
         });
