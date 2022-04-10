@@ -13,7 +13,7 @@ class CreateContinentTable extends Migration
      */
     public function up()
     {
-        Schema::create('continent', function (Blueprint $table) {
+        Schema::create('continents', function (Blueprint $table) {
             $table->id();
             $table->string('name_continent');
             $table->string('statuss');
@@ -28,6 +28,6 @@ class CreateContinentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('continent');
+        Schema::dropIfExists('continents');
     }
 }

@@ -4,13 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Modell extends Model
+class Modele extends Model
 {
     protected $fillable = [
         'brand_id', 'model_name', 'model_status'
     ];
 
-    public function modell()
+    public function modele()
     {
     	return $this->belongsTo(Brand::class);
     }

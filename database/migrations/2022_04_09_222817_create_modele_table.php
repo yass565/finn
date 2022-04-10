@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateModelTable extends Migration
+class CreateModeleTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateModelTable extends Migration
      */
     public function up()
     {
-        Schema::create('model', function (Blueprint $table) {
+        Schema::create('modeles', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('brand_id');
             $table->foreign('brand_id')
             ->references('id')
-                ->on('brand')
+                ->on('brands')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
             $table->string('model_name');
@@ -34,6 +34,6 @@ class CreateModelTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('model');
+        Schema::dropIfExists('modeles');
     }
 }

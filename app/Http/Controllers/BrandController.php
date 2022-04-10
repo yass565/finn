@@ -14,7 +14,7 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return Brand::with('Brand')
+        return Brand::with('Modeles', 'Ads')
         ->get();
     }
 
@@ -49,7 +49,7 @@ class BrandController extends Controller
      */
     public function show(Brand $id)
     {
-        return Brand::with('brands')
+        return Brand::with('modeles')
         ->find($id);
     }
 

@@ -10,9 +10,9 @@ class Brand extends Model
         'name_brand', 'statuss'
     ];
 
-    public function brands()
+    public function modeles()
     {
-    	return $this->hasMany(Modell::class);
+    	return $this->hasMany(Modele::class);
     }
 
     public function ads()
@@ -20,4 +20,3 @@ class Brand extends Model
     	return $this->hasMany(Ads::class);
     }
 }
-

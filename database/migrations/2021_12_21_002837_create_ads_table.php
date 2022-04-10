@@ -39,6 +39,21 @@ class CreateAdsTable extends Migration
                 ->on('cities')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
+
+            $table->unsignedBigInteger('brand_id');
+            $table->foreign('brand_id')
+                ->references('id')
+                ->on('brands')
+                ->onDelete('restrict')
+                ->onUpdate('restrict');
+
+                $table->unsignedBigInteger('modele_id');
+                $table->foreign('modele_id')
+                    ->references('id')
+                    ->on('modeles')
+                    ->onDelete('restrict')
+                    ->onUpdate('restrict');
+
             $table->string('title');
             $table->string('price');
             $table->text('short_desc');

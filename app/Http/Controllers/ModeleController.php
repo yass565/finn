@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Modell;
+use App\Modele;
 use Illuminate\Http\Request;
 
-class ModelController extends Controller
+class ModeleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class ModelController extends Controller
      */
     public function index()
     {
-        return Modell::all();
+        return Modele::all();
     }
 
     /**
@@ -24,7 +24,7 @@ class ModelController extends Controller
      */
     public function create()
     {
-        return view('models.create');
+        return view('modeles.create');
     }
 
     /**
@@ -35,59 +35,59 @@ class ModelController extends Controller
      */
     public function store(Request $request)
     {
-        $model = Modell::create($request->all());
+        $modele = Modele::create($request->all());
 
-        return response()->json($model, 201);
+        return response()->json($modele, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Modell  $modell
+     * @param  \App\Modele  $modele
      * @return \Illuminate\Http\Response
      */
-    public function show(Modell $id)
+    public function show(Modele $id)
     {
-        return Modell::find($id);
+        return Modele::find($id);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Modell  $modell
+     * @param  \App\Modele  $modele
      * @return \Illuminate\Http\Response
      */
-    public function edit(Modell $modell)
+    public function edit(Modele $modele)
     {
-        return view('models.edit', compact('model'));
+        return view('modeles.edit', compact('modele'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Modell  $modell
+     * @param  \App\Modele  $modele
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Modell $id)
+    public function update(Request $request, Modele $id)
     {
-        $model=Modell::findOrFail($id);
+        $modele=Modele::findOrFail($id);
 
-        $model->update($request->all());
+        $modele->update($request->all());
 
-        return response()->json($model, 200);
+        return response()->json($modele, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Modell  $modell
+     * @param  \App\Modele  $modele
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Modell $id)
+    public function destroy(Modele $id)
     {
-        $model = Modell::findOrFail($id);
-        $model->delete();
+        $modele = Modele::findOrFail($id);
+        $modele->delete();
 
         return response()->json(null, 204);
     }

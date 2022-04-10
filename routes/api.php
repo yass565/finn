@@ -71,15 +71,15 @@ Route::put('brands/{id}', 'BrandController@update');
 Route::delete('brands/{id}', 'BrandController@delete');
 
 
-Route::get('models', 'ModelController@index');
+Route::get('modeles', 'ModeleController@index');
  
-Route::get('models/{id}', 'ModelController@show');
+Route::get('modeles/{id}', 'ModeleController@show');
 
-Route::post('models', 'ModelController@store');
+Route::post('modeles', 'ModeleController@store');
 
-Route::put('models/{id}', 'ModelController@update');
+Route::put('modeles/{id}', 'ModeleController@update');
 
-Route::delete('models/{id}', 'ModelController@delete');
+Route::delete('modeles/{id}', 'ModeleController@delete');
 
 
 
